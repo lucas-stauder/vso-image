@@ -14,24 +14,6 @@ stages:
       - sed -i -e "s/ main[[:space:]]*\$/ main contrib non-free non-free-firmware/" /etc/apt/sources.list.d/debian.sources
 
   modules:
-    - name: base-files
-      type: dpkg-buildpackage
-      source:
-        type: git
-        url: https://github.com/Vanilla-OS/base-files.git
-        branch: main
-        commit: latest
-        paths:
-        - base-files
-      modules:
-      - name: base-files-deps-install
-        type: apt
-        source:
-          packages:
-          - dpkg-dev
-          - build-essential
-          - debhelper
-
     - name: systemd
       type: apt
       source:
