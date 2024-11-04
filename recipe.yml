@@ -11,6 +11,7 @@ stages:
   runs:
     commands:
       - echo 'APT::Install-Recommends "0";' > /etc/apt/apt.conf.d/01norecommends
+      - sed -i -e "s/ main[[:space:]]*\$/ main contrib non-free non-free-firmware/" /etc/apt/sources.list.d/debian.sources
 
   modules:
     - name: base-files
